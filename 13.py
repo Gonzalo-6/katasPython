@@ -1,20 +1,12 @@
-#Escribe una función que reciba una lista de números y calcule su promedio.
-# Si la lista está vacía, lanza una excepción personalizada y maneja el error adecuadamente.
+#Genera una función que, para un conjunto de caracteres,
+# devuelva una lista de tuplas con cada letra en mayúsculas y minúsculas.
+# Las letras no pueden estar repetidas. Usa la función map()
 
-class lista_vacia(Exception):
-    pass
+def mayusculas_minusculas(conjunto):
 
-def promedio(lista_numeros):
-    if not lista_numeros:
-        raise lista_numeros("Lista vacia. No se puede calcular.")
+    caracteres_unicos = set(conjunto)
 
-    return sum(lista_numeros) / len(lista_numeros)
-
-try:
-    numeros = [6,12,18]
-    resultado = promedio(numeros)
-except lista_vacia as v:
-    print("ERROR: {v}")
-else:
-    print(f"El promedio es: {resultado}")
-
+    resultado = list(map(lambda c: (c.upper(), c.lower()), caracteres_unicos))
+    return resultado
+texto = input("Introduce un conjunto de caracteres: ")
+print(mayusculas_minusculas(texto))
